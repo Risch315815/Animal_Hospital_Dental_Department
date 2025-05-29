@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   output: 'export',
   basePath: '/Animal_Hospital_Dental_Department',
   images: {
