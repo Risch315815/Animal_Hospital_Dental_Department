@@ -28,9 +28,6 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./animal-hospital
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,7 +36,7 @@ jobs:
         with:
           node-version: "18"
           cache: npm
-          cache-dependency-path: './animal-hospital/package-lock.json'
+          cache-dependency-path: 'package-lock.json'
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
@@ -49,7 +46,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./animal-hospital/out
+          path: ./out
 
   # Deployment job
   deploy:
