@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export const metadata = {
   title: "Book an Appointment | Animal Hospital Dental Department",
   description: "Schedule a dental appointment for your pet",
@@ -86,7 +84,7 @@ export default function AppointmentsPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="petName" className="block text-sm font-medium text-gray-700 mb-1">
-                        Pet's Name*
+                        Pet&apos;s Name*
                       </label>
                       <input
                         type="text"

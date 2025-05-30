@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -40,7 +39,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold mb-2">Dental Cleanings</h3>
               <p className="text-gray-600">
-                Professional cleaning to remove plaque and tartar buildup from your pet's teeth.
+                Professional cleaning to remove plaque and tartar buildup from your pet&apos;s teeth.
               </p>
             </div>
             
@@ -64,7 +63,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold mb-2">Preventive Care</h3>
               <p className="text-gray-600">
-                Preventive treatments and guidance to maintain your pet's oral health at home.
+                Preventive treatments and guidance to maintain your pet&apos;s oral health at home.
               </p>
             </div>
           </div>
@@ -127,7 +126,7 @@ export default function Home() {
               <div>
                 <h3 className="text-xl font-semibold mb-2">Complete Aftercare</h3>
                 <p className="text-gray-600">
-                  Detailed aftercare instructions and follow-up appointments to ensure your pet's recovery.
+                  Detailed aftercare instructions and follow-up appointments to ensure your pet&apos;s recovery.
                 </p>
               </div>
             </div>
@@ -140,7 +139,7 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Schedule a Dental Checkup?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Don't wait until your pet has dental problems. Preventive care is key to your pet's overall health.
+            Don&apos;t wait until your pet has dental problems. Preventive care is key to your pet&apos;s overall health.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

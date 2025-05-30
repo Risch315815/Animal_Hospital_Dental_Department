@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export const metadata = {
   title: "Contact Us | Animal Hospital Dental Department",
   description: "Contact our dental team for any questions or concerns",
@@ -13,7 +11,7 @@ export default function ContactPage() {
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
           <p className="text-xl max-w-2xl">
-            We're here to answer any questions you have about your pet's dental health.
+            We&apos;re here to answer any questions you have about your pet&apos;s dental health.
           </p>
         </div>
       </section>

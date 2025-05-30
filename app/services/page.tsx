@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -33,7 +32,7 @@ export default function ServicesPage() {
               <div className="md:w-2/3">
                 <h2 className="text-2xl font-bold mb-4">Dental Examination and Cleaning</h2>
                 <p className="text-gray-600 mb-4">
-                  A comprehensive dental examination includes evaluating your pet's oral health, teeth, gums, and overall dental condition. Our professional cleaning removes plaque and tartar buildup, polishes teeth, and helps prevent dental disease.
+                  A comprehensive dental examination includes evaluating your pet&apos;s oral health, teeth, gums, and overall dental condition. Our professional cleaning removes plaque and tartar buildup, polishes teeth, and helps prevent dental disease.
                 </p>
                 <ul className="list-disc list-inside text-gray-600 mb-4">
                   <li>Thorough oral examination</li>
@@ -77,7 +76,7 @@ export default function ServicesPage() {
               <div className="md:w-2/3">
                 <h2 className="text-2xl font-bold mb-4">Preventive Dental Care</h2>
                 <p className="text-gray-600 mb-4">
-                  Prevention is the best approach to dental health. We offer guidance and products to help maintain your pet's oral hygiene at home between professional cleanings.
+                  Prevention is the best approach to dental health. We offer guidance and products to help maintain your pet&apos;s oral hygiene at home between professional cleanings.
                 </p>
                 <ul className="list-disc list-inside text-gray-600 mb-4">
                   <li>Home dental care demonstrations</li>
@@ -99,7 +98,7 @@ export default function ServicesPage() {
               <div className="md:w-2/3">
                 <h2 className="text-2xl font-bold mb-4">Advanced Dental Procedures</h2>
                 <p className="text-gray-600 mb-4">
-                  For complex dental issues, we offer specialized treatments to address specific conditions and restore your pet's oral health.
+                  For complex dental issues, we offer specialized treatments to address specific conditions and restore your pet&apos;s oral health.
                 </p>
                 <ul className="list-disc list-inside text-gray-600 mb-4">
                   <li>Root canal therapy</li>
