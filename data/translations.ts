@@ -107,17 +107,43 @@ export const translations: Translation = {
     'en': 'Contact Us'
   },
   
+  
   // Footer
   footer_description: {
-    'zh-hant': '為您的所有寵物提供專業牙科護理。',
-    'en': 'Providing specialized dental care for all your pets.'
+    'zh-hant': '守護您美麗的牙齒。',
+    'en': 'Keep your teeth beautiful as always.'
   },
   quick_links: {
-    'zh-hant': '快速連結',
-    'en': 'Quick Links'
+    'zh-hant': '我們的服務',
+    'en': 'Our Services'
   },
-  copyright: {
-    'zh-hant': '動物醫院牙科部。保留所有權利。',
-    'en': 'Animal Hospital Dental Department. All rights reserved.'
+  footer_our_specialists: {
+    'zh-hant': '醫療團隊成員',
+    'en': 'Our Specialists'
+  },
+  footer_appointment_system: {
+    'zh-hant': 'VIP線上約診系統',
+    'en': 'VIP Online Appointment System'
+  },
+  footer_important_announcements: {
+    'zh-hant': '重要公告',
+    'en': 'Important Announcements'
+  },
+
+  footer_contact_us: {
+    'zh-hant': '請聯絡我們',
+    'en': 'Please Contact Us'
+  },
+  footer_hotline: {
+    'zh-hant': '24小時預約專線',
+    'en': '24-hour Appointment Hotline'
+  },
+  footer_mailbox: {
+    'zh-hant': '院長信箱：我們重視您寶貴的意見',
+    'en': 'Director\'s Mailbox: We value your experience'
+  },
+  greetings: {
+    'zh-hant': '動物醫院牙科部。祝您有個美好的一天。',
+    'en': 'Animal Hospital Dental Department. Have a pleasant day.'
   }
 }; 

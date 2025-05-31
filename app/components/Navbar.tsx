@@ -8,12 +8,12 @@ export default function Navbar() {
   const { t } = useLanguage();
 
   return (
-    <nav className="bg-blue-600 text-white p-4 shadow-md">
+    <nav className="bg-gray-800 text-white p-4 shadow-md">
       <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center">
         <div className="flex items-center mb-4 lg:mb-0">
           <Link href="/" className="flex items-center">
             <div className="font-bold text-xl">{t('site_title')}</div>
-            <div className="ml-2 bg-white text-blue-600 px-2 py-1 rounded-md text-xs font-semibold">
+            <div className="ml-2 bg-white text-gray-800 px-2 py-1 rounded-md text-xs font-semibold">
               {t('dental_department')}
             </div>
           </Link>
@@ -21,19 +21,19 @@ export default function Navbar() {
         
         <div className="flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0 lg:space-x-6">
           <div className="flex space-x-6">
-            <Link href="/" className="hover:text-blue-200 transition-colors">
+            <Link href="/" className="hover:text-gray-300 transition-colors">
               {t('nav_home')}
             </Link>
-            <Link href="/services" className="hover:text-blue-200 transition-colors">
+            <Link href="/services" className="hover:text-gray-300 transition-colors">
               {t('nav_services')}
             </Link>
-            <Link href="/appointments" className="hover:text-blue-200 transition-colors">
+            <Link href="/appointments" className="hover:text-gray-300 transition-colors">
               {t('nav_appointments')}
             </Link>
-            <Link href="/about" className="hover:text-blue-200 transition-colors">
+            <Link href="/about" className="hover:text-gray-300 transition-colors">
               {t('nav_about')}
             </Link>
-            <Link href="/contact" className="hover:text-blue-200 transition-colors">
+            <Link href="/contact" className="hover:text-gray-300 transition-colors">
               {t('nav_contact')}
             </Link>
           </div>
