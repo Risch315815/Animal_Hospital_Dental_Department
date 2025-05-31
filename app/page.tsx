@@ -1,14 +1,10 @@
 'use client';
 
-import Link from "next/link";
-import { useLanguage } from "./contexts/LanguageContext";
 import { useState, useEffect } from "react";
 
 // ----------------------------------------
 
 export default function Home() {
-  const { t } = useLanguage();
-  
   // Rotating image display
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const images = [
