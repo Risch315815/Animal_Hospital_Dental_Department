@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useLanguage } from "./contexts/LanguageContext";
 import { useState, useEffect } from "react";
 
+// ----------------------------------------
+
 export default function Home() {
   const { t } = useLanguage();
   
