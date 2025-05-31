@@ -52,53 +52,6 @@ export const translations: Translation = {
     'en': 'Book an Appointment'
   },
   
-  // About section
-  about_section_title: {
-    'zh-hant': '關於我們',
-    'en': 'About Us'
-  },
-  about_section_content: {
-    'zh-hant': [
-      '動物醫院牙科部是一個階級護體的伊甸園:',
-      '一群專科醫生仗著病人信任他們有能力處理難症，大刀闊斧施展他們的才華。',
-      '歡迎約診。我們會好好治療你。'
-    ],
-    'en': [
-      'The Animal Hospital\'s Dental Department is a paradise shielded by privilege:',
-      'Wielding the trust of patients in need, specialists here unleash any treatment they deem necessary.',
-      'Welcome. We shall treat you well.'
-    ]
-  },
-  
-  // Services
-  services_title: {
-    'zh-hant': '我們的牙科服務',
-    'en': 'Our Dental Services'
-  },
-  service_cleaning_title: {
-    'zh-hant': '牙齒清潔',
-    'en': 'Dental Cleanings'
-  },
-  service_cleaning_desc: {
-    'zh-hant': '專業清潔去除寵物牙齒上的牙垢和牙石堆積。',
-    'en': 'Professional cleaning to remove plaque and tartar buildup from your pet\'s teeth.'
-  },
-  service_extraction_title: {
-    'zh-hant': '拔牙',
-    'en': 'Extractions'
-  },
-  service_extraction_desc: {
-    'zh-hant': '溫和地移除受損或感染的牙齒，防止進一步併發症。',
-    'en': 'Gentle removal of damaged or infected teeth to prevent further complications.'
-  },
-  service_preventive_title: {
-    'zh-hant': '預防護理',
-    'en': 'Preventive Care'
-  },
-  service_preventive_desc: {
-    'zh-hant': '預防性治療和指導，幫助您在家中維護寵物的口腔健康。',
-    'en': 'Preventive treatments and guidance to maintain your pet\'s oral health at home.'
-  },
   
   // Why choose us
   why_choose_title: {

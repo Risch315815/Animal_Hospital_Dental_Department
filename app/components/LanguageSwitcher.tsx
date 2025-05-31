@@ -12,7 +12,7 @@ export default function LanguageSwitcher() {
 
   return (
     <div className="flex items-center space-x-2">
-      <span className="text-sm text-gray-600">
+      <span className="text-sm text-white">
         {language === 'zh-hant' ? '選擇語言：' : 'Choose Language:'}
       </span>
       <div className="flex space-x-1">
