@@ -1,131 +1,180 @@
-import Link from "next/link";
+'use client';
 
-export const metadata = {
-  title: "Our Dental Services | Animal Hospital Dental Department",
-  description: "Comprehensive dental services for all your pets",
-};
+import { useLanguage } from '../contexts/LanguageContext';
+import teamData from '../../data/team.json';
 
 export default function ServicesPage() {
+  const { language } = useLanguage();
+
+  // Team members data from team.json
+  const teamMembers = [
+    {
+      id: 'Extractosaurus',
+      name: language === 'zh-hant' ? '拔牙暴龍' : 'Extractosaurus',
+      specialty: language === 'zh-hant' ? '口腔外科' : 'Maxillofacial Surgery',
+      image: '/images/team/Extractosaurus.png',
+      profileKey: 'Extractosaurus_profile'
+    },
+    {
+      id: 'ScalingKitty',
+      name: language === 'zh-hant' ? '洗牙貓貓' : 'Scaling Kitty',
+      specialty: language === 'zh-hant' ? '牙周病科' : 'Periodontics',
+      image: '/images/team/ScalingKitty.png',
+      profileKey: 'ScalingKitty_profile'
+    },
+    {
+      id: 'ProsthoWolf',
+      name: language === 'zh-hant' ? '波索沃' : 'ProsthoWolf',
+      specialty: language === 'zh-hant' ? '補綴科' : 'Prosthodontics',
+      image: '/images/team/ProsthoWolf.png',
+      profileKey: 'ProsthoWolf_profile'
+    },
+    {
+      id: 'R3_5Cow',
+      name: language === 'zh-hant' ? 'R3.5牛' : 'R3.5 Cow',
+      specialty: language === 'zh-hant' ? '家庭牙科住院醫師' : 'Family Dentistry Resident',
+      image: '/images/team/R3_5Cow.png',
+      profileKey: 'R3_5Cow_profile'
+    },
+    {
+      id: 'CaptainFrontalLobotomy',
+      name: language === 'zh-hant' ? '前額葉切除隊長' : 'Captain Frontal Lobotomy',
+      specialty: language === 'zh-hant' ? '神經外科' : 'Neurosurgery',
+      image: '/images/team/CaptainFrontalLobotomy.png',
+      profileKey: 'CaptainFrontalLobotomy_profile'
+    },
+    {
+      id: 'OralPathAnteater',
+      name: language === 'zh-hant' ? '口病食蟻獸' : 'Oral Pathology Anteater',
+      specialty: language === 'zh-hant' ? '口腔病理科' : 'Oral Pathology',
+      image: '/images/team/OralPathAnteater_text.png',
+      profileKey: 'OralPathAnteater_profile'
+    },
+    {
+      id: 'PedoRabbit',
+      name: language === 'zh-hant' ? '兒牙兔' : 'PedoRabbit',
+      specialty: language === 'zh-hant' ? '兒童牙科' : 'Pedodontics',
+      image: '/images/team/PedoRabbit.png',
+      profileKey: 'PedoRabbit_profile'
+    },
+    {
+      id: 'Lavisheep',
+      name: language === 'zh-hant' ? '敗家綿羊' : 'Lavisheep',
+      specialty: language === 'zh-hant' ? '齒顎矯正科' : 'Orthodontics',
+      image: '/images/team/Lavisheep.png',
+      profileKey: 'Lavisheep_profile'
+    },
+    {
+      id: 'TerribleDad',
+      name: language === 'zh-hant' ? '西醫歐(洗牙貓貓他爸)' : 'CEO (Scaling Kitty\'s Dad)',
+      specialty: language === 'zh-hant' ? '耳鼻喉科' : 'ENT',
+      image: '/images/team/TerribleDad.png',
+      profileKey: 'TerribleDad_profile'
+    },
+    {
+      id: 'Manager',
+      name: language === 'zh-hant' ? '管理層' : 'Manager',
+      specialty: language === 'zh-hant' ? '管理科' : 'Administration',
+      image: '/images/team/Manager.png',
+      profileKey: 'Manager_profile'
+    }
+  ];
+
+  // Get profile text from team.json
+  const getProfileText = (profileKey: string) => {
+    const profile = teamData[profileKey as keyof typeof teamData];
+    if (profile && typeof profile === 'object' && 'text' in profile) {
+      const text = (profile as any).text[language] || (profile as any).text['zh-hant'];
+      return text;
+    }
+    return '';
+  };
+
+  // Get team title and description
+  const teamTitle = teamData.team_title?.text?.[language] || teamData.team_title?.text?.['zh-hant'] || 'Our Specialists';
+  const teamDescription = teamData.team_description?.text?.[language] || teamData.team_description?.text?.['zh-hant'] || '';
+
   return (
-    <div className="flex flex-col">
-      {/* Hero Banner */}
-      <section className="bg-blue-600 text-white py-16">
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="bg-gray-100 py-8">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-4">Our Dental Services</h1>
-          <p className="text-xl max-w-2xl">
-            We provide comprehensive dental care for all types of pets, from routine cleanings to advanced procedures.
-          </p>
-        </div>
-      </section>
-
-      {/* Services List */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 gap-12">
-            {/* Service 1 */}
-            <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="md:w-1/3 bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                </svg>
-              </div>
-              <div className="md:w-2/3">
-                <h2 className="text-2xl font-bold mb-4">Dental Examination and Cleaning</h2>
-                <p className="text-gray-600 mb-4">
-                  A comprehensive dental examination includes evaluating your pet&apos;s oral health, teeth, gums, and overall dental condition. Our professional cleaning removes plaque and tartar buildup, polishes teeth, and helps prevent dental disease.
-                </p>
-                <ul className="list-disc list-inside text-gray-600 mb-4">
-                  <li>Thorough oral examination</li>
-                  <li>Professional scaling and polishing</li>
-                  <li>Fluoride treatment</li>
-                  <li>Dental X-rays when necessary</li>
-                </ul>
-                <p className="font-medium">Recommended for: All pets, especially those over 3 years old</p>
-              </div>
-            </div>
-
-            {/* Service 2 */}
-            <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="md:w-1/3 bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                </svg>
-              </div>
-              <div className="md:w-2/3">
-                <h2 className="text-2xl font-bold mb-4">Tooth Extractions</h2>
-                <p className="text-gray-600 mb-4">
-                  When a tooth is severely damaged or infected, extraction may be necessary to relieve pain and prevent further health issues. Our specialists use modern techniques and appropriate pain management to make the procedure as comfortable as possible.
-                </p>
-                <ul className="list-disc list-inside text-gray-600 mb-4">
-                  <li>Simple and surgical extractions</li>
-                  <li>Pre-operative pain management</li>
-                  <li>Complete aftercare instructions</li>
-                  <li>Follow-up appointments</li>
-                </ul>
-                <p className="font-medium">Recommended for: Pets with damaged, loose, or infected teeth</p>
-              </div>
-            </div>
-
-            {/* Service 3 */}
-            <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="md:w-1/3 bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
-              </div>
-              <div className="md:w-2/3">
-                <h2 className="text-2xl font-bold mb-4">Preventive Dental Care</h2>
-                <p className="text-gray-600 mb-4">
-                  Prevention is the best approach to dental health. We offer guidance and products to help maintain your pet&apos;s oral hygiene at home between professional cleanings.
-                </p>
-                <ul className="list-disc list-inside text-gray-600 mb-4">
-                  <li>Home dental care demonstrations</li>
-                  <li>Specialized toothbrushes and pastes for pets</li>
-                  <li>Dental chews and treats recommendations</li>
-                  <li>Water additives for dental health</li>
-                </ul>
-                <p className="font-medium">Recommended for: All pets, starting from a young age</p>
-              </div>
-            </div>
-
-            {/* Service 4 */}
-            <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="md:w-1/3 bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <div className="md:w-2/3">
-                <h2 className="text-2xl font-bold mb-4">Advanced Dental Procedures</h2>
-                <p className="text-gray-600 mb-4">
-                  For complex dental issues, we offer specialized treatments to address specific conditions and restore your pet&apos;s oral health.
-                </p>
-                <ul className="list-disc list-inside text-gray-600 mb-4">
-                  <li>Root canal therapy</li>
-                  <li>Treatment for periodontal disease</li>
-                  <li>Oral mass biopsies</li>
-                  <li>Jaw fracture repairs</li>
-                </ul>
-                <p className="font-medium">Recommended for: Pets with advanced dental issues or oral injuries</p>
-              </div>
-            </div>
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-black mb-4">
+              {teamTitle}
+            </h1>
+            <div 
+              className="text-lg text-gray-700 max-w-4xl mx-auto"
+              dangerouslySetInnerHTML={{ __html: teamDescription }}
+            />
           </div>
         </div>
-      </section>
+      </header>
+
+      {/* Team Members */}
+      <main className="bg-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="space-y-16">
+            {teamMembers.map((member, index) => (
+              <div key={member.id} className="border-b border-gray-200 pb-12 last:border-b-0">
+                <div className={`flex flex-col lg:flex-row gap-8 items-center ${
+                  index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+                }`}>
+                  {/* Character Image */}
+                  <div className="lg:w-1/2">
+                    <div className="relative">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-auto rounded-lg shadow-lg"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Character Info */}
+                  <div className="lg:w-1/2">
+                    <div className="text-center lg:text-left">
+                      <h2 className="text-3xl font-bold text-black mb-2">
+                        {member.name}
+                      </h2>
+                      <h3 className="text-xl text-blue-600 font-semibold mb-6">
+                        {member.specialty}
+                      </h3>
+                      
+                      {/* Profile Description */}
+                      <div 
+                        className="text-gray-700 leading-relaxed text-lg"
+                        dangerouslySetInnerHTML={{ 
+                          __html: getProfileText(member.profileKey) 
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </main>
 
       {/* Call to Action */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-gray-100">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Schedule a Dental Service?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Our team is ready to provide the best dental care for your pet.
+          <h2 className="text-3xl font-bold mb-4 text-black">
+            {language === 'zh-hant' ? '準備好預約專科服務了嗎？' : 'Ready to Schedule a Specialist Service?'}
+          </h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto text-gray-700">
+            {language === 'zh-hant' 
+              ? '我們的專業團隊準備為您的寵物提供最佳的專科護理。' 
+              : 'Our specialist team is ready to provide the best care for your pet.'
+            }
           </p>
-          <Link
+          <a
             href="/appointments"
-            className="bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-full font-medium transition-colors"
+            className="bg-blue-600 text-white hover:bg-blue-700 px-8 py-4 rounded-full font-semibold text-lg transition-colors inline-block"
           >
-            Book an Appointment
-          </Link>
+            {language === 'zh-hant' ? '立即預約' : 'Book an Appointment'}
+          </a>
         </div>
       </section>
     </div>

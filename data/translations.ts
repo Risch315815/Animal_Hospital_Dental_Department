@@ -14,20 +14,20 @@ export const translations: Translation = {
     'en': 'Home'
   },
   nav_services: {
-    'zh-hant': '服務項目',
-    'en': 'Services'
+    'zh-hant': '專科醫師醫療團隊',
+    'en': 'Our Specialists'
   },
   nav_appointments: {
-    'zh-hant': '預約',
-    'en': 'Appointments'
+    'zh-hant': 'VIP線上約診系統',
+    'en': 'VIP Online Appointment System'
   },
   nav_about: {
-    'zh-hant': '關於我們',
-    'en': 'About Us'
+    'zh-hant': '重要公告',
+    'en': 'Important Announcements'
   },
   nav_contact: {
     'zh-hant': '聯繫我們',
-    'en': 'Contact'
+    'en': 'Contact Us'
   },
   
   // Home page
@@ -118,7 +118,7 @@ export const translations: Translation = {
     'en': 'Our Services'
   },
   footer_our_specialists: {
-    'zh-hant': '醫療團隊成員',
+    'zh-hant': '專科醫師醫療團隊',
     'en': 'Our Specialists'
   },
   footer_appointment_system: {

@@ -29,7 +29,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="post-header text-center">
             <h1 className="text-4xl font-bold text-black mb-4">
-              動物醫院牙科部 Animal_Hospital:Dental_Dept
+              動物醫院牙科部 Animal Hospital: Dental Department
             </h1>
           </div>
         </div>
