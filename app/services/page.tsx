@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useLanguage } from '../contexts/LanguageContext';
 import teamData from '../../data/team.json';
 
@@ -80,19 +81,28 @@ export default function ServicesPage() {
     }
   ];
 
-  // Get profile text from team.json
-  const getProfileText = (profileKey: string) => {
-    const profile = teamData[profileKey as keyof typeof teamData];
-    if (profile && typeof profile === 'object' && 'text' in profile) {
-      const text = (profile as any).text[language] || (profile as any).text['zh-hant'];
-      return text;
+  // Get profile text from team.json with proper typing
+  const getProfileText = (profileKey: string): string => {
+    const profile = (teamData as Record<string, unknown>)[profileKey];
+    if (profile && typeof profile === 'object' && profile !== null && 'text' in profile) {
+      const textData = (profile as { text: Record<string, string> }).text;
+      return textData[language] || textData['zh-hant'] || '';
     }
     return '';
   };
 
-  // Get team title and description
-  const teamTitle = teamData.team_title?.text?.[language] || teamData.team_title?.text?.['zh-hant'] || 'Our Specialists';
-  const teamDescription = teamData.team_description?.text?.[language] || teamData.team_description?.text?.['zh-hant'] || '';
+  // Get team title and description with proper typing
+  const getTeamData = (key: string): string => {
+    const data = (teamData as Record<string, unknown>)[key];
+    if (data && typeof data === 'object' && data !== null && 'text' in data) {
+      const textData = (data as { text: Record<string, string> }).text;
+      return textData[language] || textData['zh-hant'] || '';
+    }
+    return key === 'team_title' ? 'Our Specialists' : '';
+  };
+
+  const teamTitle = getTeamData('team_title');
+  const teamDescription = getTeamData('team_description');
 
   return (
     <div className="min-h-screen bg-white">
@@ -123,10 +133,13 @@ export default function ServicesPage() {
                   {/* Character Image */}
                   <div className="lg:w-1/2">
                     <div className="relative">
-                      <img
+                      <Image
                         src={member.image}
                         alt={member.name}
+                        width={600}
+                        height={400}
                         className="w-full h-auto rounded-lg shadow-lg"
+                        priority={index < 3}
                       />
                     </div>
                   </div>
