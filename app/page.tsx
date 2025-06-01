@@ -48,7 +48,7 @@ export default function Home() {
       {/* Rotating Image Display Wall */}
       <section className="bg-white py-8">
         <div className="container mx-auto px-4 flex justify-center">
-          <div className="relative overflow-hidden rounded-lg shadow-lg" style={{ width: '1194px', height: '834px' }}>
+          <div className="relative overflow-hidden rounded-lg shadow-lg" style={{ width: '900px', height: '600px' }}>
             {images.map((image, index) => (
               <div
                 key={index}
