@@ -1,17 +1,24 @@
 'use client';
 
 import { useState, useEffect } from "react";
+import { useLanguage } from './contexts/LanguageContext';
 
 // ----------------------------------------
 
 export default function Home() {
+  const { language } = useLanguage();
+  
   // Rotating image display
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const images = [
-    "/api/placeholder/800/300",
-    "/api/placeholder/800/300", 
-    "/api/placeholder/800/300",
-    "/api/placeholder/800/300"
+    {
+      'zh-hant': "/images/carousel/sponsor_zh.png",
+      'en': "/images/carousel/sponsor_en.png"
+    },
+    {
+      'zh-hant': "/images/carousel/architecture_zh.png",
+      'en': "/images/carousel/architecture_en.png"
+    },
   ];
 
   useEffect(() => {
@@ -47,7 +54,7 @@ export default function Home() {
                 }`}
               >
                 <img
-                  src={image}
+                  src={images[index][language] || images[index]['en']}
                   alt={`Hospital image ${index + 1}`}
                   className="w-full h-full object-cover"
                 />
