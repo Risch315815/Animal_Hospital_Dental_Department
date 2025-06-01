@@ -14,7 +14,7 @@ export const translations: Translation = {
     'en': 'Home'
   },
   nav_services: {
-    'zh-hant': '專科醫師醫療團隊',
+    'zh-hant': '專科醫師團隊',
     'en': 'Our Specialists'
   },
   nav_appointments: {
