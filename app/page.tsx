@@ -8,16 +8,19 @@ import { useLanguage } from './contexts/LanguageContext';
 export default function Home() {
   const { language } = useLanguage();
   
+  // Get the base path from Next.js config
+  const basePath = process.env.NODE_ENV === 'production' ? '/Animal_Hospital_Dental_Department' : '';
+  
   // Rotating image display
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const images = [
     {
-      'zh-hant': "/images/carousel/sponsor_zh.png",
-      'en': "/images/carousel/sponsor_en.png"
+      'zh-hant': `${basePath}/images/carousel/sponsor_zh.png`,
+      'en': `${basePath}/images/carousel/sponsor_en.png`
     },
     {
-      'zh-hant': "/images/carousel/architecture_zh.png",
-      'en': "/images/carousel/architecture_en.png"
+      'zh-hant': `${basePath}/images/carousel/architecture_zh.png`,
+      'en': `${basePath}/images/carousel/architecture_en.png`
     },
   ];
 

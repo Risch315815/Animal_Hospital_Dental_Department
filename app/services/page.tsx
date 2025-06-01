@@ -7,6 +7,9 @@ import teamData from '../../data/team.json';
 export default function ServicesPage() {
   const { language } = useLanguage();
 
+  // Get the base path from Next.js config
+  const basePath = process.env.NODE_ENV === 'production' ? '/Animal_Hospital_Dental_Department' : '';
+
   // Team members data from team.json
   const teamMembers = [
     {
@@ -14,8 +17,8 @@ export default function ServicesPage() {
       name: language === 'zh-hant' ? '拔牙暴龍' : 'Extractosaurus',
       specialty: language === 'zh-hant' ? '口腔外科' : 'Maxillofacial Surgery',
       image: {
-        'zh-hant': '/images/team/Extractosaurus_zh.png',
-        'en': '/images/team/Extractosaurus_en.png'
+        'zh-hant': `${basePath}/images/team/Extractosaurus_zh.png`,
+        'en': `${basePath}/images/team/Extractosaurus_en.png`
       },
       profileKey: 'Extractosaurus_profile'
     },
@@ -24,8 +27,8 @@ export default function ServicesPage() {
       name: language === 'zh-hant' ? '洗牙貓貓' : 'Scaling Kitty',
       specialty: language === 'zh-hant' ? '牙周病科' : 'Periodontics',
       image: {
-        'zh-hant': '/images/team/ScalingKitty_zh.png',
-        'en': '/images/team/ScalingKitty_en.png'
+        'zh-hant': `${basePath}/images/team/ScalingKitty_zh.png`,
+        'en': `${basePath}/images/team/ScalingKitty_en.png`
       },
       profileKey: 'ScalingKitty_profile'
     },
@@ -34,8 +37,8 @@ export default function ServicesPage() {
       name: language === 'zh-hant' ? '波索沃' : 'ProsthoWolf',
       specialty: language === 'zh-hant' ? '補綴科 | 牙體復型科 | 牙髓病科' : 'Prosthodontics | Operative Dentistry | Endodontics',
       image: {
-        'zh-hant': '/images/team/ProsthoWolf_zh.png',
-        'en': '/images/team/ProsthoWolf_en.png'
+        'zh-hant': `${basePath}/images/team/ProsthoWolf_zh.png`,
+        'en': `${basePath}/images/team/ProsthoWolf_en.png`
       },
       profileKey: 'ProsthoWolf_profile'
     },
@@ -44,8 +47,8 @@ export default function ServicesPage() {
       name: language === 'zh-hant' ? 'R3.5牛' : 'R3.5 Cow',
       specialty: language === 'zh-hant' ? '家庭牙科住院醫師' : 'Family Dentistry Resident',
       image: {
-        'zh-hant': '/images/team/R3_5Cow_zh.png',
-        'en': '/images/team/R3_5Cow_en.png'
+        'zh-hant': `${basePath}/images/team/R3_5Cow_zh.png`,
+        'en': `${basePath}/images/team/R3_5Cow_en.png`
       },
       profileKey: 'R3_5Cow_profile'
     },
@@ -54,8 +57,8 @@ export default function ServicesPage() {
       name: language === 'zh-hant' ? '前額葉切除隊長' : 'Captain Frontal Lobotomy',
       specialty: language === 'zh-hant' ? '神經外科' : 'Neurosurgery',
       image: {
-        'zh-hant': '/images/team/CaptainFrontalLobotomy_zh.png',
-        'en': '/images/team/CaptainFrontalLobotomy_en.png'
+        'zh-hant': `${basePath}/images/team/CaptainFrontalLobotomy_zh.png`,
+        'en': `${basePath}/images/team/CaptainFrontalLobotomy_en.png`
       },
       profileKey: 'CaptainFrontalLobotomy_profile'
     },
@@ -64,8 +67,8 @@ export default function ServicesPage() {
       name: language === 'zh-hant' ? '口病食蟻獸' : 'Oral Pathology Anteater',
       specialty: language === 'zh-hant' ? '口腔病理科' : 'Oral Pathology',
       image: {
-        'zh-hant': '/images/team/OralPathAnteater_text_zh.png',
-        'en': '/images/team/OralPathAnteater_text_en.png'
+        'zh-hant': `${basePath}/images/team/OralPathAnteater_text_zh.png`,
+        'en': `${basePath}/images/team/OralPathAnteater_text_en.png`
       },
       profileKey: 'OralPathAnteater_profile'
     },
@@ -74,8 +77,8 @@ export default function ServicesPage() {
       name: language === 'zh-hant' ? '兒牙兔' : 'PedoRabbit',
       specialty: language === 'zh-hant' ? '兒童牙科' : 'Pedodontics',
       image: {
-        'zh-hant': '/images/team/PedoRabbit_zh.png',
-        'en': '/images/team/PedoRabbit_en.png'
+        'zh-hant': `${basePath}/images/team/PedoRabbit_zh.png`,
+        'en': `${basePath}/images/team/PedoRabbit_en.png`
       },
       profileKey: 'PedoRabbit_profile'
     },
@@ -84,8 +87,8 @@ export default function ServicesPage() {
       name: language === 'zh-hant' ? '敗家綿羊' : 'Lavisheep',
       specialty: language === 'zh-hant' ? '齒顎矯正科' : 'Orthodontics',
       image: {
-        'zh-hant': '/images/team/Lavisheep_zh.png',
-        'en': '/images/team/Lavisheep_en.png'
+        'zh-hant': `${basePath}/images/team/Lavisheep_zh.png`,
+        'en': `${basePath}/images/team/Lavisheep_en.png`
       },
       profileKey: 'Lavisheep_profile'
     },
@@ -94,8 +97,8 @@ export default function ServicesPage() {
       name: language === 'zh-hant' ? '西醫歐(洗牙貓貓他爸)' : 'CEO (Scaling Kitty\'s Dad)',
       specialty: language === 'zh-hant' ? '耳鼻喉科' : 'ENT',
       image: {
-        'zh-hant': '/images/team/TerribleDad_zh.png',
-        'en': '/images/team/TerribleDad_en.png'
+        'zh-hant': `${basePath}/images/team/TerribleDad_zh.png`,
+        'en': `${basePath}/images/team/TerribleDad_en.png`
       },
       profileKey: 'TerribleDad_profile'
     },
@@ -104,8 +107,8 @@ export default function ServicesPage() {
       name: language === 'zh-hant' ? '管理層' : 'Manager',
       specialty: language === 'zh-hant' ? '管理科' : 'Administration',
       image: {
-        'zh-hant': '/images/team/Manager_zh.png',
-        'en': '/images/team/Manager_en.png'
+        'zh-hant': `${basePath}/images/team/Manager_zh.png`,
+        'en': `${basePath}/images/team/Manager_en.png`
       },
       profileKey: 'Manager_profile'
     }
