@@ -148,6 +148,12 @@ export default function ServicesPage() {
                           className="text-gray-700 leading-relaxed text-lg"
                           dangerouslySetInnerHTML={{ __html: profileHtml }}
                         />
+                        <a
+                          href={`${basePath}/education`}
+                          className="mt-4 inline-block border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-5 py-2 rounded-lg font-medium text-base transition-colors"
+                        >
+                          {language === 'zh-hant' ? '衛教專區' : 'Educational Content'}
+                        </a>
                       </div>
                     </div>
                   </div>
