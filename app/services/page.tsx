@@ -137,6 +137,11 @@ export default function ServicesPage() {
   const teamTitle = getTeamData('team_title');
   const teamDescription = getTeamData('team_description');
 
+  const referralTitle = language === 'zh-hant' ? '如何轉診至各專科' : 'How to Refer Patients to Different Departments';
+  const referralIntro = language === 'zh-hant'
+    ? '一般牙科先判斷問題，再依患者狀況轉診至各專科。以下流程圖說明轉診路徑，幫助您為病患安排最適合的專科醫師。'
+    : 'General dentistry first assesses the problem, then refers patients to the appropriate specialty based on their condition. The flowchart below illustrates the referral pathways to help you direct patients to the right specialist.';
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -154,9 +159,36 @@ export default function ServicesPage() {
         </div>
       </header>
 
-      {/* Team Members */}
+      {/* Referral flowchart */}
+      <section className="bg-white py-12 border-b border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl font-bold text-black mb-4 text-center">
+              {referralTitle}
+            </h2>
+            <p className="text-lg text-gray-700 text-center mb-8 max-w-3xl mx-auto">
+              {referralIntro}
+            </p>
+            <div className="relative rounded-lg overflow-hidden shadow-lg bg-gray-50">
+              <Image
+                src={`${basePath}/images/referral-departments.png`}
+                alt={referralTitle}
+                width={1200}
+                height={800}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Specialists intro + Team Members */}
       <main className="bg-white py-12">
         <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-bold text-black mb-10 text-center">
+            {language === 'zh-hant' ? '認識我們的專科醫師' : 'Meet Our Specialists'}
+          </h2>
           <div className="space-y-16">
             {teamMembers.map((member, index) => (
               <div key={member.id} className="border-b border-gray-200 pb-12 last:border-b-0">
