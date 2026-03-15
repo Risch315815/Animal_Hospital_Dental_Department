@@ -139,8 +139,8 @@ export default function ServicesPage() {
 
   const referralTitle = language === 'zh-hant' ? '如何轉診至各專科' : 'How to Refer Patients to Different Departments';
   const referralIntro = language === 'zh-hant'
-    ? '一般牙科先判斷問題，再依患者狀況轉診至各專科。以下流程圖說明轉診路徑，幫助您為病患安排最適合的專科醫師。'
-    : 'General dentistry first assesses the problem, then refers patients to the appropriate specialty based on their condition. The flowchart below illustrates the referral pathways to help you direct patients to the right specialist.';
+    ? '一般牙科先判斷問題，再依患者狀況轉診至各專科。'
+    : 'General dentistry first assesses the problem, then refers patients to the appropriate specialty based on their condition.';
 
   return (
     <div className="min-h-screen bg-white">
@@ -243,12 +243,12 @@ export default function ServicesPage() {
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto text-gray-700">
             {language === 'zh-hant' 
-              ? '我們的專業團隊準備為您的寵物提供最佳的專科護理。' 
+              ? '我們的專業團隊準備為您提供最佳的照護。' 
               : 'Our specialist team is ready to provide the best care for your pet.'
             }
           </p>
           <a
-            href="/appointments"
+            href="/JoeBingDDS/#schedule"
             className="bg-blue-600 text-white hover:bg-blue-700 px-8 py-4 rounded-full font-semibold text-lg transition-colors inline-block"
           >
             {language === 'zh-hant' ? '立即預約' : 'Book an Appointment'}
