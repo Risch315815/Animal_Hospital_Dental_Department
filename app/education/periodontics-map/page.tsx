@@ -5,7 +5,6 @@ import Link from 'next/link';
 
 export default function PeriodonticsMapPage() {
   const { language } = useLanguage();
-  const basePath = process.env.NODE_ENV === 'production' ? '/Animal_Hospital_Dental_Department' : '';
   const title = language === 'zh-hant' ? '牙周病科地圖' : 'Map for Periodontics';
   const backLabel = language === 'zh-hant' ? '回專科醫師團隊' : 'Back to Specialists';
 
