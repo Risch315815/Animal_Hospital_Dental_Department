@@ -175,7 +175,7 @@ export default function ServicesPage() {
                 alt={referralTitle}
                 width={1200}
                 height={800}
-                className="w-full h-auto"
+                className="w-[80vw] md:w-[50vw] h-auto mx-auto"
                 priority
               />
             </div>
