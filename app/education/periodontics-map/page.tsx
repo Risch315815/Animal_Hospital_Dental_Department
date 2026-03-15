@@ -20,7 +20,7 @@ export default function PeriodonticsMapPage() {
               : 'This page is for the periodontics referral and treatment map. Content coming soon.'}
           </p>
           <Link
-            href={`${basePath}/services`}
+            href="/services"
             className="mt-6 inline-block text-blue-600 hover:underline font-medium"
           >
             ← {backLabel}
