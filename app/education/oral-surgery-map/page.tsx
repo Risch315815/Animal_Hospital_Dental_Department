@@ -23,11 +23,6 @@ export default function OralSurgeryMapPage() {
       <section className="bg-gray-100 py-12">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold text-black mb-4">{title}</h1>
-          <p className="text-lg text-gray-700 max-w-3xl">
-            {language === 'zh-hant'
-              ? '此頁面為口腔外科轉診與治療地圖，內容建置中。'
-              : 'This page is for the oral surgery referral and treatment map. Content coming soon.'}
-          </p>
           <Link
             href={`${basePath}/services`}
             className="mt-6 inline-block text-blue-600 hover:underline font-medium"
