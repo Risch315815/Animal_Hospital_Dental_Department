@@ -48,21 +48,60 @@ const TEAM_PROFILES = {
   }
 } as const;
 
+type EducationLink = { label: { 'zh-hant': string; en: string }; href: string };
+
 export default function ServicesPage() {
   const { language } = useLanguage();
 
   const basePath = process.env.NODE_ENV === 'production' ? '/Animal_Hospital_Dental_Department' : '';
 
-  const teamMembers = [
-    { id: 'Extractosaurus', name: { 'zh-hant': '拔牙暴龍', en: 'Extractosaurus' }, specialty: { 'zh-hant': '口腔外科', en: 'Maxillofacial Surgery' }, imagePath: 'Extractosaurus', profileKey: 'Extractosaurus' as keyof typeof TEAM_PROFILES },
-    { id: 'ScalingKitty', name: { 'zh-hant': '洗牙貓貓', en: 'Scaling Kitty' }, specialty: { 'zh-hant': '牙周病科', en: 'Periodontics' }, imagePath: 'ScalingKitty', profileKey: 'ScalingKitty' as keyof typeof TEAM_PROFILES },
-    { id: 'ProsthoWolf', name: { 'zh-hant': '波索沃', en: 'ProsthoWolf' }, specialty: { 'zh-hant': '補綴科 | 牙體復型科 | 牙髓病科', en: 'Prosthodontics | Operative Dentistry | Endodontics' }, imagePath: 'ProsthoWolf', profileKey: 'ProsthoWolf' as keyof typeof TEAM_PROFILES },
-    { id: 'R3_5Cow', name: { 'zh-hant': 'R3.5牛', en: 'R3.5 Cow' }, specialty: { 'zh-hant': '家庭牙科住院醫師', en: 'Family Dentistry Resident' }, imagePath: 'R3_5Cow', profileKey: 'R3_5Cow' as keyof typeof TEAM_PROFILES },
-    { id: 'DrShaw', name: { 'zh-hant': '蕭博士', en: 'Dr. Shaw' }, specialty: { 'zh-hant': '口腔病理科', en: 'Oral Pathology' }, imagePath: 'DrShaw', profileKey: 'DrShaw' as keyof typeof TEAM_PROFILES },
-    { id: 'PedoRabbit', name: { 'zh-hant': '兒牙兔', en: 'PedoRabbit' }, specialty: { 'zh-hant': '兒童牙科', en: 'Pedodontics' }, imagePath: 'PedoRabbit', profileKey: 'PedoRabbit' as keyof typeof TEAM_PROFILES },
-    { id: 'Lavisheep', name: { 'zh-hant': '敗家綿羊', en: 'Lavisheep' }, specialty: { 'zh-hant': '齒顎矯正科', en: 'Orthodontics' }, imagePath: 'Lavisheep', profileKey: 'Lavisheep' as keyof typeof TEAM_PROFILES },
-    { id: 'TerribleDad', name: { 'zh-hant': '西醫歐(洗牙貓貓他爸)', en: "CEO (Scaling Kitty's Dad)" }, specialty: { 'zh-hant': '耳鼻喉科', en: 'ENT' }, imagePath: 'TerribleDad', profileKey: 'TerribleDad' as keyof typeof TEAM_PROFILES },
-    { id: 'Manager', name: { 'zh-hant': '管理層', en: 'Manager' }, specialty: { 'zh-hant': '管理科', en: 'Administration' }, imagePath: 'Manager', profileKey: 'Manager' as keyof typeof TEAM_PROFILES }
+  const teamMembers: Array<{
+    id: string;
+    name: { 'zh-hant': string; en: string };
+    specialty: { 'zh-hant': string; en: string };
+    imagePath: string;
+    profileKey: keyof typeof TEAM_PROFILES;
+    educationLinks: EducationLink[];
+  }> = [
+    { id: 'Extractosaurus', name: { 'zh-hant': '拔牙暴龍', en: 'Extractosaurus' }, 
+      specialty: { 'zh-hant': '口腔外科', en: 'Maxillofacial Surgery' }, 
+      imagePath: 'Extractosaurus', profileKey: 'Extractosaurus', 
+      educationLinks: [{ label: { 'zh-hant': '口腔外科地圖', en: 'Map for Oral Surgery' }, href: `${basePath}/education/oral-surgery-map` }] },
+    { id: 'ScalingKitty', name: { 'zh-hant': '洗牙貓貓', en: 'Scaling Kitty' }, 
+      specialty: { 'zh-hant': '牙周病科', en: 'Periodontics' }, 
+      imagePath: 'ScalingKitty', profileKey: 'ScalingKitty', 
+      educationLinks: [{ label: { 'zh-hant': '牙周病科地圖', en: 'Map for Periodontics' }, href: `${basePath}/education/periodontics-map` }] },
+    { id: 'ProsthoWolf', name: { 'zh-hant': '波索沃', en: 'ProsthoWolf' }, 
+      specialty: { 'zh-hant': '補綴科 | 牙體復型科 | 牙髓病科', en: 'Prosthodontics | Operative Dentistry | Endodontics' }, 
+      imagePath: 'ProsthoWolf', profileKey: 'ProsthoWolf', 
+      educationLinks: [
+        { label: { 'zh-hant': '補牙地圖', en: 'Map for Operative Dentistry' }, href: `${basePath}/education/OD-map` },
+        { label: { 'zh-hant': '根管治療地圖', en: 'Map for Endodontic Treatment' }, href: `${basePath}/education/Endo-map` }
+      ] },
+    { id: 'R3_5Cow', name: { 'zh-hant': 'R3.5牛', en: 'R3.5 Cow' }, 
+      specialty: { 'zh-hant': '家庭牙科住院醫師', en: 'Family Dentistry Resident' }, 
+      imagePath: 'R3_5Cow', profileKey: 'R3_5Cow', 
+      educationLinks: [] },
+    { id: 'DrShaw', name: { 'zh-hant': '蕭博士', en: 'Dr. Shaw' }, 
+      specialty: { 'zh-hant': '口腔病理科', en: 'Oral Pathology' }, 
+      imagePath: 'DrShaw', profileKey: 'DrShaw', 
+      educationLinks: [] },
+    { id: 'PedoRabbit', name: { 'zh-hant': '兒牙兔', en: 'PedoRabbit' }, 
+      specialty: { 'zh-hant': '兒童牙科', en: 'Pedodontics' }, 
+      imagePath: 'PedoRabbit', profileKey: 'PedoRabbit', 
+      educationLinks: [] },
+    { id: 'Lavisheep', name: { 'zh-hant': '敗家綿羊', en: 'Lavisheep' }, 
+      specialty: { 'zh-hant': '齒顎矯正科', en: 'Orthodontics' }, 
+      imagePath: 'Lavisheep', profileKey: 'Lavisheep', 
+      educationLinks: [] },
+    { id: 'TerribleDad', name: { 'zh-hant': '西醫歐(洗牙貓貓他爸)', en: "CEO (Scaling Kitty's Dad)" }, 
+      specialty: { 'zh-hant': '耳鼻喉科', en: 'ENT' }, 
+      imagePath: 'TerribleDad', profileKey: 'TerribleDad', 
+      educationLinks: [] },
+    { id: 'Manager', name: { 'zh-hant': '管理層', en: 'Manager' }, 
+      specialty: { 'zh-hant': '管理科', en: 'Administration' }, 
+      imagePath: 'Manager', profileKey: 'Manager', 
+      educationLinks: [] }
   ];
 
   const teamTitle = TEAM_TITLE[language] ?? TEAM_TITLE['zh-hant'];
@@ -148,12 +187,19 @@ export default function ServicesPage() {
                           className="text-gray-700 leading-relaxed text-lg"
                           dangerouslySetInnerHTML={{ __html: profileHtml }}
                         />
-                        <a
-                          href={`${basePath}/education`}
-                          className="mt-4 inline-block border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-5 py-2 rounded-lg font-medium text-base transition-colors"
-                        >
-                          {language === 'zh-hant' ? '衛教專區' : 'Educational Content'}
-                        </a>
+                        {member.educationLinks.length > 0 && (
+                          <div className="mt-4 flex flex-wrap gap-3">
+                            {member.educationLinks.map((link, i) => (
+                              <a
+                                key={i}
+                                href={link.href}
+                                className="inline-block border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-5 py-2 rounded-lg font-medium text-base transition-colors"
+                              >
+                                {link.label[language] ?? link.label['zh-hant']}
+                              </a>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
