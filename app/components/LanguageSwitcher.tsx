@@ -1,13 +1,25 @@
 'use client';
 
+import { usePathname, useRouter } from 'next/navigation';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Language } from '../../data/translations';
 
 export default function LanguageSwitcher() {
   const { language, setLanguage } = useLanguage();
+  const pathname = usePathname();
+  const router = useRouter();
 
   const handleLanguageChange = (newLang: Language) => {
     setLanguage(newLang);
+
+    const onChineseHome = pathname === '/' || pathname === '';
+    const onEnglishHome = pathname === '/en';
+
+    if (newLang === 'en' && onChineseHome) {
+      router.push('/en');
+    } else if (newLang === 'zh-hant' && onEnglishHome) {
+      router.push('/');
+    }
   };
 
   return (

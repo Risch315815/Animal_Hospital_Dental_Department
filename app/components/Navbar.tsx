@@ -5,13 +5,14 @@ import { useLanguage } from '../contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navbar() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const homeHref = language === 'en' ? '/en' : '/';
 
   return (
     <nav className="bg-gray-800 text-white p-4 shadow-md">
       <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center">
         <div className="flex items-center mb-4 lg:mb-0">
-          <Link href="/" className="flex items-center">
+          <Link href={homeHref} className="flex items-center">
             <div className="font-bold text-xl">{t('site_title')}</div>
             <div className="ml-2 bg-white text-gray-800 px-2 py-1 rounded-md text-xs font-semibold">
               {t('dental_department')}
@@ -21,7 +22,7 @@ export default function Navbar() {
         
         <div className="flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0 lg:space-x-6">
           <div className="flex space-x-6">
-            <Link href="/" className="hover:text-gray-300 transition-colors">
+            <Link href={homeHref} className="hover:text-gray-300 transition-colors">
               {t('nav_home')}
             </Link>
             <Link href="/services" className="hover:text-gray-300 transition-colors">

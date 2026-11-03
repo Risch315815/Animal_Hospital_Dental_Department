@@ -1,15 +1,16 @@
 'use client';
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { useLanguage } from './contexts/LanguageContext';
 
 // ----------------------------------------
 
 export default function Home() {
-  const { language } = useLanguage();
+  const { language, setLanguage } = useLanguage();
   
   // Get the base path from Next.js config
-  const basePath = process.env.NODE_ENV === 'production' ? '/Animal_Hospital_Dental_Department' : '';
+  const basePath = '/Animal_Hospital_Dental_Department';
   
   // Rotating image display
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -23,6 +24,10 @@ export default function Home() {
       'en': `${basePath}/images/carousel/architecture_en.png`
     },
   ];
+
+  useEffect(() => {
+    setLanguage('zh-hant');
+  }, [setLanguage]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -41,6 +46,11 @@ export default function Home() {
             <h1 className="text-4xl font-bold text-black mb-4">
               動物醫院牙科部 Animal Hospital: Dental Department
             </h1>
+            <p>
+              <Link href="/en" className="text-blue-700 underline" onClick={() => setLanguage('en')}>
+                Portfolio
+              </Link>
+            </p>
           </div>
         </div>
       </header>

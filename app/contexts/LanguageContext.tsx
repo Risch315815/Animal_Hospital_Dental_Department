@@ -14,13 +14,27 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>('zh-hant');
 
-  // Load saved language from localStorage on mount
+  // Load saved language from localStorage on mount.
+  // The two front pages are fixed: / is Chinese, /en is English.
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const savedLang = localStorage.getItem('preferred-language') as Language;
-      if (savedLang && (savedLang === 'zh-hant' || savedLang === 'en')) {
-        setLanguage(savedLang);
-      }
+    if (typeof window === 'undefined') return;
+
+    const path = window.location.pathname;
+    if (/\/en\/?$/.test(path)) {
+      setLanguage('en');
+      return;
+    }
+    if (
+      path === '/' ||
+      /\/Animal_Hospital_Dental_Department\/?$/.test(path)
+    ) {
+      setLanguage('zh-hant');
+      return;
+    }
+
+    const savedLang = localStorage.getItem('preferred-language') as Language;
+    if (savedLang && (savedLang === 'zh-hant' || savedLang === 'en')) {
+      setLanguage(savedLang);
     }
   }, []);
 
