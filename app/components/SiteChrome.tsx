@@ -6,7 +6,7 @@ import Footer from './Footer';
 
 export default function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isPortfolio = pathname === '/en';
+  const isPortfolio = pathname === '/en' || pathname.startsWith('/en/');
 
   return (
     <>

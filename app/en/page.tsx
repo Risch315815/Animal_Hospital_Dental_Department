@@ -16,6 +16,7 @@ type Piece = {
   /** Set this to a public path, such as /images/portfolio/piece-01.png, when the real file is ready. */
   image?: string;
   aspect: string;
+  hideFromAll?: boolean;
 };
 
 const CATEGORIES: Array<'All' | Category> = [
@@ -25,12 +26,20 @@ const CATEGORIES: Array<'All' | Category> = [
   'Comic',
 ];
 
+const ROADMAPS = [
+  { title: 'Oral Surgery', href: '/en/oral-surgery', image: '/images/portfolio/roadmap-oral-surgery.jpg' },
+  { title: 'Endodontics', href: '/en/endodontics', image: '/images/portfolio/roadmap-endodontics.jpg' },
+  { title: 'Operative Dentistry', href: '/en/operative-dentistry', image: '/images/portfolio/roadmap-operative-dentistry.jpg' },
+  { title: 'Implantology', href: '/en/implantology', image: '/images/portfolio/roadmap-implantology.jpg' },
+];
+
 // Swap titles, categories, and image paths when the seminar pieces are ready.
 const PIECES: Piece[] = [
-  { id: 'referral', title: 'General Dentistry Referral', category: 'Cheatsheet', image: '/images/portfolio/general-dentistry-referral.png', aspect: '3 / 4' },
+  { id: 'referral', title: 'General Dentistry Referral', category: 'Cheatsheet', image: '/images/portfolio/general-dentistry-referral.png', aspect: '3 / 4', hideFromAll: true },
+  { id: 'referral-en', title: 'General Practitioner Referral', category: 'Cheatsheet', image: '/images/portfolio/general-practitioner-referral.png', aspect: '3 / 4' },
   { id: 'fx-en', title: 'Fracture from Trauma', category: 'Cheatsheet', image: '/images/portfolio/fracture-from-trauma.png', aspect: '3 / 4' },
-  { id: 'pathology', title: 'Pathology Pathway', category: 'Cheatsheet', image: '/images/portfolio/pathology-pathway.png', aspect: '3 / 4' },
-  { id: 'fx-zh', title: 'Fracture Pathway', category: 'Cheatsheet', image: '/images/portfolio/fracture-pathway.png', aspect: '3 / 4' },
+  { id: 'pathology', title: 'Pathology Pathway', category: 'Cheatsheet', image: '/images/portfolio/pathology-pathway.png', aspect: '3 / 4', hideFromAll: true },
+  { id: 'fx-zh', title: 'Fracture Pathway', category: 'Cheatsheet', image: '/images/portfolio/fracture-pathway.png', aspect: '3 / 4', hideFromAll: true },
   { id: 'bridge', title: 'Cannot Remove Bridge', category: 'Treatment Options', image: '/images/portfolio/cannot-remove-bridge.png', aspect: '1 / 1' },
   { id: 'abutment-broken', title: 'Abutment Broken or Severely Adjusted', category: 'Treatment Options', image: '/images/portfolio/abutment-broken.png', aspect: '1 / 1' },
   { id: 'implant-fx', title: 'Implant or Screw Fractured', category: 'Treatment Options', image: '/images/portfolio/implant-screw-fractured.png', aspect: '1 / 1' },
@@ -113,7 +122,10 @@ export default function EnglishHome() {
     };
   }, [openPiece]);
 
-  const visible = PIECES.filter((piece) => category === 'All' || piece.category === category);
+  const visible = PIECES.filter((piece) => {
+    if (category === 'All') return !piece.hideFromAll;
+    return piece.category === category;
+  });
 
   const renderPiece = (piece: Piece) => (
     <article key={piece.id} className="mb-3 break-inside-avoid">
@@ -146,8 +158,11 @@ export default function EnglishHome() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PAGE_BG, color: INK }}>
       <section className="mx-auto max-w-6xl px-5 pb-20 pt-16 sm:px-8 sm:pt-20">
-        <p className="mb-8 text-center text-xs tracking-[0.38em] uppercase" style={{ color: INK }}>
-          Portfolio
+        <p className="mb-8 text-center text-xs tracking-[0.38em]" style={{ color: INK }}>
+          JoeBing DDS
+          <br />
+          <br />
+          PORTFOLIO
         </p>
         <div className="mx-auto mb-8 h-px w-44" style={{ backgroundColor: INK, opacity: 0.45 }} />
 
@@ -183,11 +198,76 @@ export default function EnglishHome() {
           {visible.map(renderPiece)}
         </div>
 
-        <p className="mt-16 text-center text-sm tracking-[0.16em]">
-          <Link href="/" onClick={() => setLanguage('zh-hant')} className="underline underline-offset-4">
-            中文版
-          </Link>
-        </p>
+        <div className="mx-auto mb-10 mt-20 h-px w-44" style={{ backgroundColor: INK, opacity: 0.45 }} />
+        <div className="mb-10 flex items-center justify-center">
+          <h2 className="w-full text-center text-4xl font-bold tracking-[0.12em] sm:text-6xl">
+            DENTAL ROADMAP
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {ROADMAPS.map((item) => (
+            <Link
+              key={item.title}
+              href={item.href}
+              className="group relative block overflow-hidden bg-white"
+            >
+              <img
+                src={imageSrc(item.image, basePath)}
+                alt={item.title}
+                className="block h-auto w-full"
+              />
+              <div
+                className="absolute inset-x-0 bottom-0 px-4 py-3"
+                style={{ backgroundColor: 'rgba(4, 40, 120, 0.82)' }}
+              >
+                <p className="text-center text-sm tracking-[0.14em] uppercase">{item.title}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <nav className="mt-16 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm tracking-[0.16em]">
+          <a
+            href="https://www.facebook.com/xu.zhen.jie.48103/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4"
+          >
+            Facebook
+          </a>
+          <a
+            href="https://www.linkedin.com/in/chen-chieh-hsu-9835a631a/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://www.threads.com/@joebingdds"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4"
+          >
+            Threads
+          </a>
+          <a
+            href="https://www.instagram.com/joebingdds/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4"
+          >
+            Instagram
+          </a>
+          <a
+            href="https://risch315815.github.io/JoeBingDDS/en"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4"
+          >
+            Personal Page
+          </a>
+        </nav>
       </section>
 
       {openPiece?.image && (
